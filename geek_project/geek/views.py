@@ -6,13 +6,11 @@ def squad_power(request):
         in_game_name = request.POST.get('in_game_name')
         hq_level = request.POST.get('hq_level')
         squad_power_value = request.POST.get('squad_power')
-        image = request.FILES.get('image')
 
         entry = SquadPowerEntry(
             in_game_name=in_game_name,
             hq_level=hq_level,
-            squad_power=squad_power_value,
-            image=image
+            squad_power=squad_power_value
         )
         entry.save()
 
