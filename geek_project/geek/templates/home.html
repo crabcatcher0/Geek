@@ -1,0 +1,53 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans "GEEK Fam" %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Remove spinners in Chrome, Safari, Edge, Opera */
+        input[type=number]::-webkit-outer-spin-button,
+        input[type=number]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Remove spinners in Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="mb-4 text-center">{% trans "GEEK" %}</h1>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="in_game_name" class="form-label">{% trans "In-game Name" %}</label>
+                        <input type="text" class="form-control" id="in_game_name" name="in_game_name" placeholder="{% trans 'Enter your in-game name' %}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="hq_level" class="form-label">{% trans "HQ Level" %}</label>
+                        <input type="number" class="form-control" id="hq_level" name="hq_level" placeholder="{% trans 'Enter HQ level' %}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="squad_power" class="form-label">{% trans "Squad Power" %}</label>
+                        <input type="number" step="0.01" min="0" max="10" class="form-control" id="squad_power" name="squad_power" placeholder="{% trans 'Enter squad power' %}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">{% trans "Upload Image" %}</label>
+                        <input type="file" class="form-control" id="image" name="image">
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">{% trans "Submit" %}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
